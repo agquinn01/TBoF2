@@ -1,0 +1,18 @@
+{% extends "/layout_blank.html" %}
+
+{% block styles %}
+{% endblock %}
+
+{% block body %}
+
+{% for item in chapter1Items %}
+	<div class="floated_img">
+		<a target="_top" href={{ item.route }}><img src={{ item.image }} height="150"></img>
+		<center>
+		<p> {{ item.title }} </p>
+		</center>
+	</div>
+{% endfor %}
+
+
+{% endblock %}

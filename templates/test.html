@@ -1,0 +1,23 @@
+{% extends "/layout_simple.html" %}
+
+{% block styles %}
+	
+	<style>
+	h1 { color:magenta; }
+	</style>
+
+{% endblock %}
+
+{% block body %}
+
+		<h1>{{ title }}</h1>
+
+		<p>Some more text goes here.</p>
+
+		{% for color in colors %}
+		<li>{{ color }}</li>
+		{% endfor %}
+
+
+
+{% endblock %}

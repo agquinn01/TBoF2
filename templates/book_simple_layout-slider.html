@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="shortcut icon" href="/static/img/bunnyfavicon2.ico">
+
+
+		<style>
+
+			h1 { color:black; font-family:"Georgia", serif; }
+			h2 { color:black; font-family:"Georgia", serif; }
+			p { color:black; font-family: "Georgia", serif; }
+			
+			.newspaper
+			{
+			-webkit-column-count:2; /* Chrome,Safari, Opera*/
+			-webkit-column-gap:60px;
+			-moz-column-count:2; /* Firefox */
+			-moz-column-gap:60px;
+			column-count:2;
+			column-gap:60px;
+			}
+			.boxed {
+				position: relative;
+				top: 20px;
+				spacing: 0px;
+				border: 0px;
+				padding: 40px;
+				background: white;
+				margin: 8px;
+			}
+			.page_prev {
+				display: inline-block;
+				float: left;
+			}
+			.page_next {
+				display: inline-block;
+				float: right;
+			}
+			button {
+ 				background:transparent;
+ 				border:0;
+			}
+			table
+			{
+/*				display: block;
+				align: center;*/
+				margin: 0px;
+				cellspacing:0px;
+				cellpadding:0px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.block {
+			    margin-left: auto;
+			    margin-right: auto;
+			}
+			</style>
+		{% block styles %}{% endblock %}
+	<!--<script>
+	function show(shown, hidden) {
+		document.getElementById(shown).style.display='block';
+		document.getElementById(hidden).style.display='none';
+		return false;
+	} -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="jquery.big-slide.js"></script>
+	<script>
+	/*! bigSlide - v0.4.3 - 2014-01-25
+	* http://ascott1.github.io/bigSlide.js/
+	* Copyright (c) 2014 Adam D. Scott; Licensed MIT */
+	(function($) {
+	  'use strict';
+
+	  $.fn.bigSlide = function(options) {
+
+	    var settings = $.extend({
+	      'menu': ('#menu'),
+	      'push': ('.push'),
+	      'side': 'left',
+	      'menuWidth': '15.625em',
+	      'speed': '300'
+	    }, options);
+
+	    var menuLink = this,
+	        menu = $(settings.menu),
+	        push = $(settings.push),
+	        width = settings.menuWidth;
+
+	    var positionOffScreen = {
+	      'position': 'fixed',
+	      'top': '0',
+	      'bottom': '0',
+	      'settings.side': '-' + settings.menuWidth,
+	      'width': settings.menuWidth,
+	      'height': '100%'
+	    };
+
+	    var animateSlide = {
+	      '-webkit-transition': settings.side + ' ' + settings.speed + 'ms ease',
+	      '-moz-transition': settings.side + ' ' + settings.speed + 'ms ease',
+	      '-ms-transition': settings.side + ' ' + settings.speed + 'ms ease',
+	      '-o-transition': settings.side + ' ' + settings.speed + 'ms ease',
+	      'transition': settings.side + ' ' + settings.speed + 'ms ease'
+	    };
+
+	    menu.css(positionOffScreen);
+	    push.css(settings.side, '0');
+	    menu.css(animateSlide);
+	    push.css(animateSlide);
+
+	    menu._state = 'closed';
+
+	    menu.open = function() {
+	      menu._state = 'open';
+	      menu.css(settings.side, '0');
+	      push.css(settings.side, width);
+	    };
+
+	    menu.close = function() {
+	      menu._state = 'closed';
+	      menu.css(settings.side, '-' + width);
+	      push.css(settings.side, '0');
+	    };
+
+	    menuLink.on('click.bigSlide', function(e) {
+	      e.preventDefault();
+	      if (menu._state === 'closed') {
+	        menu.open();
+	      } else {
+	        menu.close();
+	      }
+	    });
+
+	    menuLink.on('touchend', function(e){
+	      menuLink.trigger('click.bigSlide');
+	      e.preventDefault();
+	    });
+
+	    return menu;
+
+	  };
+
+	}(jQuery));
+	</script>
+
+	<script>
+
+
+	$(document).ready(function(){
+		// $changePage(currentPage)
+		var lastPage = $(".page").last().data("page");
+		window.location.hash = "#1"
+		var hash = window.location.hash;
+		hash = hash.substring('1');
+		var currentPage = parseInt(hash)
+		if (!currentPage) currentPage = 1;
+		console.log(hash)
+		console.log(currentPage)
+		// $(".page").hide();
+		// window.location.hash = "#" + currentPage;
+	  $("#prev").click(function(){
+	  	if (currentPage-1 > 0){
+	  		currentPage --;
+	  		changePage(currentPage);
+	  	}
+	  });
+	  $("#next").click(function(){
+	  	console.log("hello")
+	  	if (currentPage+1 <= lastPage) {
+	  		currentPage ++;
+	  		changePage(currentPage);
+	  	}
+	  });
+	  function changePage(page) {
+	  	$(".page").hide();
+	  	$(".page[data-page='"+page+"']").show();
+	  	window.location.hash = "#" + page;
+	  }
+
+	$('.menu-link').bigSlide();
+
+	});
+
+	</script>
+	
+	</head>
+	<body style = "background-color:#939393;"> 
+		<center>
+		<table width="100%" height="50px" border="0" cellpadding="0" align="center">
+			<tr>
+				<td width="33.33%">
+				</td>
+				<td align="center" valign="center" width="33.33%">
+					<a href="/bof1"><img src="/static/img/thebook.png" alt="dossier" height="40" padding="0"></a>
+					<a href="/home"><img src="/static/img/logo.png" alt="logo" width="200" padding="0"></a>
+					<a href="/list"><img src="/static/img/dossier.png" alt="dossier" height="40" padding="0"></a>
+				</td>
+				<td align="right" valign="center"width="33.33%">
+				</td>
+		</table>
+	</center>
+	<a href="#menu" class="menu-link">&#9776;</a>
+		<nav id="menu" class="panel" role="navigation">
+				    <ul>
+				        <li><a href="#">Home</a></li>
+				        <li><a href="#">The Ballad of El Goodo</a></li>
+				        <li><a href="#">Thirteen</a></li>
+				        <li><a href="#">September Gurls</a></li>
+				        <li><a href="#">What's Going Ahn</a></li>
+				    </ul>
+			</nav>
+
+		<!-- <table width="100%" height="30px" border="0" cellpadding="0">
+			<tr>
+				<td width="50%" align="left">
+					<button id="prev"><img src="/static/img/book/page_back.png" height="30"></button>
+				</td>
+				<td width="50%" align="right">
+					<button id="next"><img src="/static/img/book/page_forward.png" height="30"></button>
+				</td>
+			</tr> 
+		</table> -->
+		<!-- <center> -->
+		<!-- <table width="100%" height="30px" border="0" cellpadding="0" align="center">
+			<tr>
+				<td width="50%" align="left">
+					<button id="prev"><img src="/static/img/book/page_prev.png" height="30"></button>
+				</td>
+				<td width="50%" align="right">
+					<button id="next"><img src="/static/img/book/page_next.png" height="30"></button>
+				</td>
+			</tr>
+		</table> -->
+		<div class="page_prev">
+			<button id="prev"><img src="/static/img/book/page_prev.png" height="30"></button>
+		</div>
+		<div class="page_next">
+			<button id="next"><img src="/static/img/book/page_next.png" height="30"></button>
+		</div>
+		<p></p>
+		<p></p>
+
+
+		<!-- </center> -->
+		<!-- <button id="prev">prev</button>
+		<button id="next">next</button> -->
+
+		<div class="boxed">
+
+		<div class= "newspaper"> 
+
+		{% block body %}
+
+		{% endblock %}
+		
+		</div>
+		</div>
+
+
+	</body>
+	
+</html>

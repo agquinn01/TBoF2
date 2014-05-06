@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="shortcut icon" href="/static/img/bunnyfavicon2.ico">
+		<style>
+					table
+			{
+/*				display: block;
+				align: center;*/
+				margin: 0px;
+				cellspacing:0px;
+				cellpadding:0px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+		{% block styles %}{% endblock %}
+		</style>
+	
+	</head>
+	<body style = "background-color:#939393;"> 
+		<center>
+			<table width="100%" height="50px" border="0" cellpadding="0" align="center">
+				<tr>
+					<td width="40%" align="right">
+						<a href="/bof1#{{ myPage }}"><img src="/static/img/thebook.png" alt="dossier" height="40" padding="0"></a>
+					</td>
+					<td align="center" valign="center" width="20%">
+						<a href="/home"><img src="/static/img/logo.png" alt="logo" width="200" padding="0"></a>
+					</td>
+					<td align="left" valign="center" width="40%">
+						<a href="/list"><img src="/static/img/dossier.png" alt="dossier" height="40" padding="0"></a>
+					</td>
+				</tr>
+			</table>
+		</center>
+
+
+		{% block body %}
+
+		{% endblock %}
+
+
+	</body>
+	
+</html>

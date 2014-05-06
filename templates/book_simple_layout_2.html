@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="shortcut icon" href="/static/img/bunnyfavicon2.ico">
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+ 		<!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+		<style>
+			h1 { color:black; font-family:"Georgia", serif; }
+			h2 { color:black; font-family:"Georgia", serif; }
+			p { color:black; font-family: "Georgia", serif; }
+			pagenumber {color: white;}
+			
+			.newspaper
+			{
+			-webkit-column-count:2; /* Chrome,Safari, Opera*/
+			-webkit-column-gap:60px;
+			-moz-column-count:2; /* Firefox */
+			-moz-column-gap:60px;
+			column-count:2;
+			column-gap:60px;
+			}
+			.boxed {
+				position: relative;
+				top: -10px;
+				spacing: 0px;
+				border: 0px;
+				padding: 40px;
+				background: white;
+				margin: 8px;
+			}
+			.page_prev {
+				display: inline-block;
+				float: left;
+			}
+			.page_next {
+				display: inline-block;
+				float: right;
+			}
+			button {
+ 				background:transparent;
+ 				border:0;
+			}
+			table
+			{
+/*				display: block;
+				align: center;*/
+				margin: 0px;
+				cellspacing:0px;
+				cellpadding:0px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.block {
+			    margin-left: auto;
+			    margin-right: auto;
+			}
+			</style>
+		{% block styles %}{% endblock %}
+	<!--<script>
+	function show(shown, hidden) {
+		document.getElementById(shown).style.display='block';
+		document.getElementById(hidden).style.display='none';
+		return false;
+	} -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+	</script>
+	<script>
+
+
+	$(document).ready(function(){
+		jQuery.noConflict();
+		// $changePage(currentPage)
+		var lastPage = $(".page").last().data("page");
+		window.location.hash = "#{{ myPage }}"
+		var hash = window.location.hash;
+		hash = hash.substring('1');
+		var currentPage = parseInt(hash)
+		if (!currentPage) currentPage = 1;
+		// console.log(hash)
+		// console.log(currentPage)
+		changePage(currentPage);
+		// document.getElementById("mybookmark").value = currentPage;
+		// document.getElementById('mycurrentpage').value = currentPage;
+		document.getElementById('prev').value = currentPage;
+	  	document.getElementById('next').value = currentPage;
+		// $(".page").hide();
+		window.location.hash = "#" + currentPage;
+	  $("#prev").click(function(){
+	  	console.log("previous?")
+	  	if (currentPage-1 > 0){
+	  		currentPage --;
+	  		changePage(currentPage);
+	  	}
+	  	document.getElementById('prev').value = currentPage;
+	  	console.log("previous value " + document.getElementById('prev').value);
+	  	console.log("next value " + document.getElementById('next').value);
+	  });
+	  $("#next").click(function(){
+	  	console.log("next?")
+	  	if (currentPage+1 <= lastPage) {
+	  		currentPage ++;
+	  		changePage(currentPage);
+	  	}
+	  	document.getElementById('next').value = currentPage;
+	  });
+
+	  function changePage(page) {
+	  	$(".page").hide();
+	  	$(".page[data-page='"+page+"']").show();
+	  	window.location.hash = "#" + page;
+	  	// document.getElementById("mybookmark").value = currentPage;
+	  	// document.getElementById('mycurrentpage').value = currentPage;
+	  	document.getElementById('prev').value = currentPage;
+	  	document.getElementById('next').value = currentPage;
+	  	console.log("myPage = " + {{ myPage }})
+	  	console.log(currentPage);
+	  	console.log("previous value " + document.getElementById('prev').value);
+	  	console.log("next value " + document.getElementById('next').value);
+	  	// console.log("bookmark " + " {{ newMark }} ");
+	  }
+	});
+	
+
+	</script>
+	
+	</head>
+	<body style = "background-color:#939393;"> 
+		<center>
+			<table width="100%" height="50px" border="0" cellpadding="0" align="center">
+				<tr>
+					<td align="right" valign="center" width="40%" >
+						<a href="/bof1#{{ myPage }}"><img src="/static/img/thebook.png" alt="dossier" height="40" padding="0"></a>
+					</td>
+					<td align="center" valign="center" width="20%">
+						<a href="/home"><img src="/static/img/logo.png" alt="logo" width="200" padding="0"></a>
+					</td>
+					<td align="left" valign="center" width="40%">
+						<a href="/list"><img src="/static/img/dossier.png" alt="dossier" height="40" padding="0"></a>
+					</td>
+				</tr>
+			</table>
+		</center>
+
+		<!-- <center>
+			<p><form><input type="submit" id="mycurrentpage" name="mypage" value="page"></form></p>
+			<p color="white"> Page {{ myPage }} </p>
+		</center>
+		 -->
+
+	<center>
+		<table width="100%" height="30" border="0" cellpadding="0" align="center">
+			<tr>
+				<td width="33.3%" align"left">
+					<div class="page_prev">
+						<form>
+							<button id="prev" name="changepage" value="hello"><img src="/static/img/book/page_prev.png" height="30"></button>
+						</form>
+					</div>
+				</td>
+				<td width="33.3%" align"center">
+					<center><pagenumber> Page {{ myPage }} </pagenumber></center>
+				</td>
+				<td width="33.3%" align"right">
+					<div class="page_next">
+						<form>
+							<button id="next" name="changepage" value="hello"><img src="/static/img/book/page_next.png" height="30"></button>
+						</form>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</center>
+
+		<div class="boxed">
+
+		<div class= "newspaper"> 
+
+		{% block body %}
+
+		{% endblock %}
+		
+		</div>
+		</div>
+
+
+	</body>
+	
+</html>

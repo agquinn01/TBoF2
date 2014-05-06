@@ -1,0 +1,47 @@
+{% extends "/layout_simple.html" %}
+
+{% block styles %}
+		<style>
+			a:link {text-decoration:none;}
+			a:visited {text-decoration:none;}
+			a:hover {text-decoration:none;}
+			a:active {text-decoration:none;}
+			p { color:white; font-family: "Helvetica", sans-serif; }
+			h1 { color:white; font-family: "Helvetica", sans-serif; }
+
+			.floated_img
+			{
+				float: left;
+				padding: 10px;
+			}
+		</style>
+{% endblock %}
+
+{% block body %}
+
+	<center><a href="/list"><img src="/static/img/add_item.png" alt="add item" width="200" padding="20"></a>
+	<table>
+		<tr>
+			<td width="70%" valign="top" bgcolor="#666666">
+				<center>
+					<p><img src= {{ image }} alt={{ title }}></p>
+				</center>
+			</td>
+			<td width="30%" valign="top" align="left" bgcolor="#666666">
+				<center>
+					<p>RELATED ITEMS</p>
+				</center>
+				{% for item in relatedItems %}
+					<div class="floated_img">
+						<a href={{ item.route }}><img src={{ item.image }} height="100"></img>
+						<center>
+							<p> {{ item.title }} </p>
+						</center>
+					</div>
+				{% endfor %}
+			</td>
+		</tr>
+	</table>
+</center>
+
+{% endblock %}
