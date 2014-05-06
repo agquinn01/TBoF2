@@ -1,15 +1,59 @@
 {% extends "/layout_simple.html" %}
 
 {% block styles %}
+		<style>
+			a:link {text-decoration:none;}
+			a:visited {text-decoration:none;}
+			a:hover {text-decoration:none;}
+			a:active {text-decoration:none;}
+			p { color:white; font-family: "Helvetica", sans-serif; }
+			h1 { color:white; font-family: "Helvetica", sans-serif; }
+
+			.floated_img
+			{
+				float: left;
+				padding: 10px;
+			}
+						.mytable {
+				position: relative;
+				top: 0px;
+				spacing: 0px;
+				border: 0px;
+				padding: 40px;
+				margin: 8px;
+			}
+		</style>
 {% endblock %}
 
 {% block body %}
 
-	<center><a href="/list"><img src="/static/img/add_item.png" alt="add item" width="200" padding="20" >
-
-	<!-- <p><img src= {{ image }} alt={{ title }}></p> -->
-	<p><a href="/list"><iframe src="//player.vimeo.com/video/93462324" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-	<p><a href={{ video }}></a></p></a></p>
+	<!-- <center><a href="/list"><img src="/static/img/add_item.png" alt="add item" width="200" padding="20"></a> -->
+	<center>
+		<div class="mytable">
+			<table>
+				<tr>
+					<td width="70%" valign="top" bgcolor="#666666">
+						<center>
+							<p><a href="/list"><iframe src="//player.vimeo.com/video/93462324" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+							<p><a href={{ video }}></a></p></a></p>
+						</center>
+					</td>
+					<td width="30%" valign="top" align="left" bgcolor="#666666">
+						<center>
+							<p>RELATED ITEMS</p>
+						</center>
+						{% for item in relatedItems %}
+							<div class="floated_img">
+								<a href={{ item.route }}><img src={{ item.image }} height="100"></img>
+								<center>
+									<p> {{ item.title }} </p>
+								</center>
+							</div>
+						{% endfor %}
+					</td>
+				</tr>
+			</table>
+		</div>
 </center>
 
 {% endblock %}

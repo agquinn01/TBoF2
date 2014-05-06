@@ -11,18 +11,31 @@ app = Flask(__name__)   # create our flask app
 dossierItems = {}
 
 dossierItems['00'] = {'image':'static/img/dossier/Dossier_blank.jpg', 'index':'00', 'title':'?', 'route':'/itemblank', 'chapter':'1'}
-dossierItems['01'] = {'image':'static/img/dossier/Dossier01.jpg', 'index':'01','title':'STEVEN', 'route':'/item1', 'chapter':'1'}
-dossierItems['02'] = {'image':'static/img/dossier/Dossier012.jpg', 'index':'02','title':'FRANK', 'route':'/item2', 'chapter':'1'}
-dossierItems['03'] = {'image':'static/img/dossier/Dossier013.jpg', 'index':'03','title':'TOKI', 'route':'/item3', 'chapter':'1'}
-dossierItems['03.1'] = {'image':'static/img/dossier/Toki_vid.png', 'index':'03.1','title':'TOKI_VID', 'route':'/item3_1', 'chapter':'1', 'video':'http://vimeo.com/93462324'}
-dossierItems['04'] = {'image':'static/img/dossier/Dossier014.jpg', 'index':'04','title':'PILOT DETAIL', 'route':'/item4', 'chapter':'1'}
-dossierItems['05'] = {'image':'static/img/dossier/Dossier015.jpg', 'index':'05','title':'PILOT HISTORY', 'route':'/item5', 'chapter':'2'}
-dossierItems['06'] = {'image':'static/img/dossier/Dossier016.jpg', 'index':'06','title':'FOX', 'route':'/item6', 'chapter':'2'}
-dossierItems['07'] = {'image':'static/img/dossier/Dossier017.jpg', 'index':'07','title':'SNAKE AND MOLE', 'route':'/item7', 'chapter':'2'}
-dossierItems['08'] = {'image':'static/img/dossier/Dossier018.jpg', 'index':'08','title':'BEE AND OWL', 'route':'/item8', 'chapter':'2'}
-dossierItems['09'] = {'image':'static/img/dossier/Dossier019.jpg', 'index':'09','title':'SALLY', 'route':'/item9', 'chapter':'2'}
-dossierItems['10'] = {'image':'static/img/dossier/Dossier0110.jpg', 'index':'10','title':'CALICO', 'route':'/item10', 'chapter':'2', 'related':['01','02','03','04','05','09','11']}
-dossierItems['11'] = {'image':'static/img/dossier/MedCityCalico.png', "index":"11",'title':'CALICO WEB 1', 'route':'/item11', 'chapter':'2'}
+dossierItems['01'] = {'image':'static/img/dossier/Toki_vid.png', 'index':'01','title':'TOKI_VID', 'route':'/item01', 'chapter':'1', 'video':'http://vimeo.com/93462324', 'related':['02','03','05','06','16','25','27','37','45']}
+dossierItems['02'] = {'image':'static/img/dossier2/dossier02.jpg', 'index':'02','title':'STEVEN', 'route':'/item02', 'chapter':'1', 'related':['03']}
+dossierItems['03'] = {'image':'static/img/dossier2/dossier03.jpg', 'index':'03','title':'FRANK', 'route':'/item03', 'chapter':'1', 'related':['01','02','03','04','10']}
+dossierItems['04'] = {'image':'static/img/dossier2/dossier04.jpg', 'index':'04','title':'MATILDA', 'route':'/item04', 'chapter':'1', 'related':['01','02','03','07','08','15','19','23']}
+dossierItems['05'] = {'image':'static/img/dossier2/dossier05.jpg', 'index':'05','title':'CALICO', 'route':'/item05', 'chapter':'1', 'related':['01','02','06','16','37','45','55','56']}
+dossierItems['06'] = {'image':'static/img/dossier2/dossier06.jpg', 'index':'06','title':'CALICO SITES', 'route':'/item06', 'chapter':'1', 'related':['01','02','05','16','37','45','55','56']}
+dossierItems['07'] = {'image':'static/img/dossier2/dossier07.jpg', 'index':'07','title':'DARK NETWORK', 'route':'/item07', 'chapter':'1', 'related':['04','08','15']}
+dossierItems['08'] = {'image':'static/img/dossier2/dossier08.jpg', 'index':'08','title':'BLACK PHONE', 'route':'/item08', 'chapter':'1', 'related':['04','07','15']}
+
+dossierItems['09'] = {'image':'static/img/dossier2/dossier09.jpg', 'index':'09','title':'BAZAAR', 'route':'/item09', 'chapter':'2', 'related':['03']}
+dossierItems['10'] = {'image':'static/img/dossier2/dossier10.jpg', 'index':'10','title':'PERSUASIVE MEMORY', 'route':'/item10', 'chapter':'2', 'related':['03']}
+dossierItems['11'] = {'image':'static/img/dossier2/dossier11.jpg', 'index':'11','title':'DDOS', 'route':'/item11', 'chapter':'2', 'related':['03']}
+# dossierItems['00'] = {'image':'static/img/dossier/Dossier_blank.jpg', 'index':'00', 'title':'?', 'route':'/itemblank', 'chapter':'1'}
+# dossierItems['01'] = {'image':'static/img/dossier/Dossier01.jpg', 'index':'01','title':'STEVEN', 'route':'/item1', 'chapter':'1'}
+# dossierItems['02'] = {'image':'static/img/dossier/Dossier012.jpg', 'index':'02','title':'FRANK', 'route':'/item2', 'chapter':'1'}
+# dossierItems['03'] = {'image':'static/img/dossier/Dossier013.jpg', 'index':'03','title':'TOKI', 'route':'/item3', 'chapter':'1'}
+# dossierItems['03.1'] = {'image':'static/img/dossier/Toki_vid.png', 'index':'03.1','title':'TOKI_VID', 'route':'/item3_1', 'chapter':'1', 'video':'http://vimeo.com/93462324'}
+# dossierItems['04'] = {'image':'static/img/dossier/Dossier014.jpg', 'index':'04','title':'PILOT DETAIL', 'route':'/item4', 'chapter':'1'}
+# dossierItems['05'] = {'image':'static/img/dossier/Dossier015.jpg', 'index':'05','title':'PILOT HISTORY', 'route':'/item5', 'chapter':'2'}
+# dossierItems['06'] = {'image':'static/img/dossier/Dossier016.jpg', 'index':'06','title':'FOX', 'route':'/item6', 'chapter':'2'}
+# dossierItems['07'] = {'image':'static/img/dossier/Dossier017.jpg', 'index':'07','title':'SNAKE AND MOLE', 'route':'/item7', 'chapter':'2'}
+# dossierItems['08'] = {'image':'static/img/dossier/Dossier018.jpg', 'index':'08','title':'BEE AND OWL', 'route':'/item8', 'chapter':'2'}
+# dossierItems['09'] = {'image':'static/img/dossier/Dossier019.jpg', 'index':'09','title':'SALLY', 'route':'/item9', 'chapter':'2'}
+# dossierItems['10'] = {'image':'static/img/dossier/Dossier0110.jpg', 'index':'10','title':'CALICO', 'route':'/item10', 'chapter':'2', 'related':['01','02','03','04','05','09','11']}
+# dossierItems['11'] = {'image':'static/img/dossier/MedCityCalico.png', "index":"11",'title':'CALICO WEB 1', 'route':'/item11', 'chapter':'2'}
 
 
 
@@ -32,13 +45,12 @@ foundItems = {}
 foundItems['01'] = {"value":False,"index":"01", 'chapter':'1'}
 foundItems['02'] = {"value":False,"index":"02", 'chapter':'1'}
 foundItems['03'] = {"value":False,"index":"03", 'chapter':'1'}
-foundItems['03.1'] = {"value":False,"index":"03.1", 'chapter':'1'}
 foundItems['04'] = {"value":False,"index":"04", 'chapter':'1'}
-foundItems['05'] = {"value":False,"index":"05", 'chapter':'2'}
-foundItems['06'] = {"value":False,"index":"06", 'chapter':'2'}
-foundItems['07'] = {"value":False,"index":"07", 'chapter':'2'}
-foundItems['08'] = {"value":False,"index":"08", 'chapter':'2'}
-foundItems['09'] = {"value":False,"index":"09", 'chapter':'2'}
+foundItems['05'] = {"value":False,"index":"05", 'chapter':'1'}
+foundItems['06'] = {"value":False,"index":"06", 'chapter':'1'}
+foundItems['07'] = {"value":False,"index":"07", 'chapter':'1'}
+foundItems['08'] = {"value":False,"index":"08", 'chapter':'1'}
+foundItems['09'] = {"value":False,"index":"09", 'chapter':'1'}
 foundItems['10'] = {"value":False,"index":"10", 'chapter':'2'}
 foundItems['11'] = {"value":False,"index":"11", 'chapter':'2'}
 
@@ -108,111 +120,102 @@ def itemblank():
 	}
 	return render_template("item.html", **templateData)
 
-@app.route("/item1")
-def item1():
+@app.route("/item01")
+def item01():
 	foundItems['01']['value'] = True
-	dossierItems['01'] = {'image':'static/img/dossier/Dossier01.jpg', 'index':'01','title':'STEVEN', 'route':'/item1', 'chapter':'1'}
+	dossierItems['01'] = {'image':'static/img/dossier/Toki_vid.png', 'index':'01','title':'TOKI_VID', 'route':'/item01', 'chapter':'1', 'video':'http://vimeo.com/93462324', 'related':['02','03','05','06','16','25','27','37','45']}
 	templateData = {
 	'title' : dossierItems['01']['title'],
-	'image' : dossierItems['01']['image']
+	'image' : dossierItems['01']['image'],
+	'video' : dossierItems['01']['video']
 	}
-	return render_template("item.html", **templateData)
+	return render_template("video_item.html", **templateData)
 
-@app.route("/item2")
-def item2():
+@app.route("/item02")
+def item02():
 	foundItems['02']['value'] = True
-	dossierItems['02'] = {'image':'static/img/dossier/Dossier012.jpg', 'index':'02','title':'FRANK', 'route':'/item2', 'chapter':'1'}
+	dossierItems['02'] = {'image':'static/img/dossier2/dossier02.jpg', 'index':'02','title':'STEVEN', 'route':'/item02', 'chapter':'1', 'related':['03']}
 	templateData = {
 	'title' : dossierItems['02']['title'],
 	'image' : dossierItems['02']['image']
 	}
-	return render_template("item.html", **templateData)
+	return render_template("item1.html", **templateData)
 
-@app.route("/item3")
-def item3():
+@app.route("/item03")
+def item03():
 	foundItems['03']['value'] = True
-	dossierItems['03'] = {'image':'static/img/dossier/Dossier013.jpg', 'index':'03','title':'TOKI', 'route':'/item3', 'chapter':'1'}
+	dossierItems['03'] = {'image':'static/img/dossier2/dossier03.jpg', 'index':'03','title':'FRANK', 'route':'/item03', 'chapter':'1', 'related':['01','02','03','04','10']}
 	templateData = {
 	'title' : dossierItems['03']['title'],
 	'image' : dossierItems['03']['image']
 	}
-	return render_template("item.html", **templateData)
+	return render_template("item1.html", **templateData)
 
-@app.route("/item3_1")
-def item301():
-	foundItems['03.1']['value'] = True
-	dossierItems['03.1'] = {'image':'static/img/dossier/Toki_vid.png', 'index':'03.1','title':'TOKI_VID', 'route':'/item3_1', 'chapter':'1', 'video':'http://vimeo.com/93462324'}
-	templateData = {
-	'title' : dossierItems['03.1']['title'],
-	'image' : dossierItems['03.1']['image'],
-	'video' : dossierItems['03.1']['video']
-	}
-	return render_template("video_item.html", **templateData)
 
-@app.route("/item4")
-def item4():
+@app.route("/item04")
+def item04():
 	foundItems['04']['value'] = True
-	dossierItems['04'] = {'image':'static/img/dossier/Dossier014.jpg', 'index':'04','title':'PILOT DETAIL', 'route':'/item4', 'chapter':'1'}
+	dossierItems['04'] = {'image':'static/img/dossier2/dossier04.jpg', 'index':'04','title':'MATILDA', 'route':'/item04', 'chapter':'1', 'related':['01','02','03','07','08','15','19','23']}
 	templateData = {
 	'title' : dossierItems['04']['title'],
 	'image' : dossierItems['04']['image']
 	}
-	return render_template("item.html", **templateData)
+	return render_template("item1.html", **templateData)
 
-@app.route("/item5")
-def item5():
+@app.route("/item05")
+def item05():
 	foundItems['05']['value'] = True
-	dossierItems['05'] = {'image':'static/img/dossier/Dossier015.jpg', 'index':'05','title':'PILOT HISTORY', 'route':'/item5', 'chapter':'2'}
+	dossierItems['05'] = {'image':'static/img/dossier2/dossier05.jpg', 'index':'05','title':'CALICO', 'route':'/item05', 'chapter':'1', 'related':['01','02','06','16','37','45','55','56']}
 	templateData = {
 	'title' : dossierItems['05']['title'],
 	'image' : dossierItems['05']['image']
 	}
-	return render_template("item.html", **templateData)
+	return render_template("item1.html", **templateData)
 
-@app.route("/item6")
-def item6():
+@app.route("/item06")
+def item06():
 	foundItems['06']['value'] = True
-	dossierItems['06'] = {'image':'static/img/dossier/Dossier016.jpg', 'index':'06','title':'FOX', 'route':'/item6', 'chapter':'2'}
+	dossierItems['06'] = {'image':'static/img/dossier2/dossier06.jpg', 'index':'06','title':'CALICO SITES', 'route':'/item06', 'chapter':'1', 'related':['01','02','05','16','37','45','55','56']}
 	templateData = {
 	'title' : dossierItems['06']['title'],
 	'image' : dossierItems['06']['image']
 	}
-	return render_template("item.html", **templateData)
+	return render_template("item1.html", **templateData)
 
-@app.route("/item7")
-def item7():
+@app.route("/item07")
+def item07():
 	foundItems['07']['value'] = True
-	dossierItems['07'] = {'image':'static/img/dossier/Dossier017.jpg', 'index':'07','title':'SNAKE AND MOLE', 'route':'/item7', 'chapter':'2'}
+	dossierItems['07'] = {'image':'static/img/dossier2/dossier07.jpg', 'index':'07','title':'DARK NETWORK', 'route':'/item07', 'chapter':'1', 'related':['04','08','15']}
 	templateData = {
 	'title' : dossierItems['07']['title'],
 	'image' : dossierItems['07']['image']
 	}
-	return render_template("item.html", **templateData)
+	return render_template("item1.html", **templateData)
 
-@app.route("/item8")
-def item8():
+@app.route("/item08")
+def item08():
 	foundItems['08']['value'] = True
-	dossierItems['08'] = {'image':'static/img/dossier/Dossier018.jpg', 'index':'08','title':'BEE AND OWL', 'route':'/item8', 'chapter':'2'}
+	dossierItems['08'] = {'image':'static/img/dossier2/dossier08.jpg', 'index':'08','title':'BLACK PHONE', 'route':'/item08', 'chapter':'1', 'related':['04','07','15']}
 	templateData = {
 	'title' : dossierItems['08']['title'],
 	'image' : dossierItems['08']['image']
 	}
-	return render_template("item.html", **templateData)
+	return render_template("item1.html", **templateData)
 
-@app.route("/item9")
-def item9():
+@app.route("/item09")
+def item09():
 	foundItems['09']['value'] = True
-	dossierItems['09'] = {'image':'static/img/dossier/Dossier019.jpg', 'index':'09','title':'SALLY', 'route':'/item9', 'chapter':'2'}
+	dossierItems['09'] = {'image':'static/img/dossier2/dossier09.jpg', 'index':'09','title':'BAZAAR', 'route':'/item09', 'chapter':'2', 'related':['03']}
 	templateData = {
 	'title' : dossierItems['09']['title'],
 	'image' : dossierItems['09']['image']
 	}
-	return render_template("item.html", **templateData)
+	return render_template("item1.html", **templateData)
 
 @app.route("/item10")
 def item10():
 	foundItems['10']['value'] = True
-	dossierItems['10'] = {'image':'static/img/dossier/Dossier0110.jpg', 'index':'10','title':'CALICO', 'route':'/item10', 'chapter':'2', 'related':['01','02','03','04','05','09','11']}
+	dossierItems['10'] = {'image':'static/img/dossier2/dossier10.jpg', 'index':'10','title':'PERSUASIVE MEMORY', 'route':'/item10', 'chapter':'2', 'related':['03']}
 	relatedItems = []
 
 	for item in dossierItems['10']['related']:
@@ -230,12 +233,12 @@ def item10():
 @app.route("/item11")
 def item11():
 	foundItems['11']['value'] = True
-	dossierItems['11'] = {'image':'static/img/dossier/MedCityCalico.png', "index":"11",'title':'CALICO WEB 1', 'route':'/item11', 'chapter':'2'}
+	dossierItems['11'] = {'image':'static/img/dossier2/dossier11.jpg', 'index':'11','title':'DDOS', 'route':'/item11', 'chapter':'2', 'related':['03']}
 	templateData = {
 	'title' : dossierItems['11']['title'],
 	'image' : dossierItems['11']['image']
 	}
-	return render_template("item.html", **templateData)
+	return render_template("item1.html", **templateData)
 
 @app.route("/clear")
 def clear():
@@ -243,14 +246,44 @@ def clear():
 	dossierItems['02'] = {'image':'static/img/dossier/Dossier_blank.jpg', 'index':'02','title':'?', 'route':'/itemblank', 'chapter':'1'}
 	dossierItems['03'] = {'image':'static/img/dossier/Dossier_blank.jpg', 'index':'03','title':'?', 'route':'/itemblank', 'chapter':'1'}
 	dossierItems['04'] = {'image':'static/img/dossier/Dossier_blank.jpg', 'index':'04','title':'?', 'route':'/itemblank', 'chapter':'1'}
-	dossierItems['05'] = {'image':'static/img/dossier/Dossier_blank.jpg', 'index':'05','title':'?', 'route':'/itemblank', 'chapter':'2'}
-	dossierItems['06'] = {'image':'static/img/dossier/Dossier_blank.jpg', 'index':'06','title':'?', 'route':'/itemblank', 'chapter':'2'}
-	dossierItems['07'] = {'image':'static/img/dossier/Dossier_blank.jpg', 'index':'07','title':'?', 'route':'/itemblank', 'chapter':'2'}
-	dossierItems['08'] = {'image':'static/img/dossier/Dossier_blank.jpg', 'index':'08','title':'?', 'route':'/itemblank', 'chapter':'2'}
-	dossierItems['09'] = {'image':'static/img/dossier/Dossier_blank.jpg', 'index':'09','title':'?', 'route':'/itemblank', 'chapter':'2'}
+	dossierItems['05'] = {'image':'static/img/dossier/Dossier_blank.jpg', 'index':'05','title':'?', 'route':'/itemblank', 'chapter':'1'}
+	dossierItems['06'] = {'image':'static/img/dossier/Dossier_blank.jpg', 'index':'06','title':'?', 'route':'/itemblank', 'chapter':'1'}
+	dossierItems['07'] = {'image':'static/img/dossier/Dossier_blank.jpg', 'index':'07','title':'?', 'route':'/itemblank', 'chapter':'1'}
+	dossierItems['08'] = {'image':'static/img/dossier/Dossier_blank.jpg', 'index':'08','title':'?', 'route':'/itemblank', 'chapter':'1'}
+	dossierItems['09'] = {'image':'static/img/dossier/Dossier_blank.jpg', 'index':'09','title':'?', 'route':'/itemblank', 'chapter':'1'}
 	dossierItems['10'] = {'image':'static/img/dossier/Dossier_blank.jpg', 'index':'10','title':'?', 'route':'/itemblank', 'chapter':'2'}
 	dossierItems['11'] = {'image':'static/img/dossier/Dossier_blank.jpg', "index":"11",'title':'?', 'route':'/itemblank', 'chapter':'2'}
 
+	return render_template("clear.html")
+
+@app.route("/showall")
+def showall():
+	foundItems['01'] = {"value":True,"index":"01", 'chapter':'1'}
+	foundItems['02'] = {"value":True,"index":"02", 'chapter':'1'}
+	foundItems['03'] = {"value":True,"index":"03", 'chapter':'1'}
+	foundItems['04'] = {"value":True,"index":"04", 'chapter':'1'}
+	foundItems['05'] = {"value":True,"index":"05", 'chapter':'1'}
+	foundItems['06'] = {"value":True,"index":"06", 'chapter':'1'}
+	foundItems['07'] = {"value":True,"index":"07", 'chapter':'1'}
+	foundItems['08'] = {"value":True,"index":"08", 'chapter':'1'}
+	foundItems['09'] = {"value":True,"index":"09", 'chapter':'1'}
+	foundItems['10'] = {"value":True,"index":"10", 'chapter':'2'}
+	foundItems['11'] = {"value":True,"index":"11", 'chapter':'2'}
+	
+	dossierItems['00'] = {'image':'static/img/dossier/Dossier_blank.jpg', 'index':'00', 'title':'?', 'route':'/itemblank', 'chapter':'1'}
+	dossierItems['01'] = {'image':'static/img/dossier/Toki_vid.png', 'index':'01','title':'TOKI_VID', 'route':'/item01', 'chapter':'1', 'video':'http://vimeo.com/93462324', 'related':['02','03','05','06','16','25','27','37','45']}
+	dossierItems['02'] = {'image':'static/img/dossier2/dossier02.jpg', 'index':'02','title':'STEVEN', 'route':'/item02', 'chapter':'1', 'related':['03']}
+	dossierItems['03'] = {'image':'static/img/dossier2/dossier03.jpg', 'index':'03','title':'FRANK', 'route':'/item03', 'chapter':'1', 'related':['01','02','03','04','10']}
+	dossierItems['04'] = {'image':'static/img/dossier2/dossier04.jpg', 'index':'04','title':'MATILDA', 'route':'/item04', 'chapter':'1', 'related':['01','02','03','07','08','15','19','23']}
+	dossierItems['05'] = {'image':'static/img/dossier2/dossier05.jpg', 'index':'05','title':'CALICO', 'route':'/item05', 'chapter':'1', 'related':['01','02','06','16','37','45','55','56']}
+	dossierItems['06'] = {'image':'static/img/dossier2/dossier06.jpg', 'index':'06','title':'CALICO SITES', 'route':'/item06', 'chapter':'1', 'related':['01','02','05','16','37','45','55','56']}
+	dossierItems['07'] = {'image':'static/img/dossier2/dossier07.jpg', 'index':'07','title':'DARK NETWORK', 'route':'/item07', 'chapter':'1', 'related':['04','08','15']}
+	dossierItems['08'] = {'image':'static/img/dossier2/dossier08.jpg', 'index':'08','title':'BLACK PHONE', 'route':'/item08', 'chapter':'1', 'related':['04','07','15']}
+	
+	dossierItems['09'] = {'image':'static/img/dossier2/dossier09.jpg', 'index':'09','title':'BAZAAR', 'route':'/item09', 'chapter':'2', 'related':['03']}
+	dossierItems['10'] = {'image':'static/img/dossier2/dossier10.jpg', 'index':'10','title':'PERSUASIVE MEMORY', 'route':'/item10', 'chapter':'2', 'related':['03']}
+	dossierItems['11'] = {'image':'static/img/dossier2/dossier11.jpg', 'index':'11','title':'DDOS', 'route':'/item11', 'chapter':'2', 'related':['03']}
+	
 	return render_template("clear.html")
 
 

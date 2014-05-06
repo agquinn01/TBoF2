@@ -14,34 +14,45 @@
 				float: left;
 				padding: 10px;
 			}
+						.mytable {
+				position: relative;
+				top: 0px;
+				spacing: 0px;
+				border: 0px;
+				padding: 40px;
+				margin: 8px;
+			}
 		</style>
 {% endblock %}
 
 {% block body %}
 
-	<center><a href="/list"><img src="/static/img/add_item.png" alt="add item" width="200" padding="20"></a>
-	<table>
-		<tr>
-			<td width="70%" valign="top" bgcolor="#666666">
-				<center>
-					<p><img src= {{ image }} alt={{ title }}></p>
-				</center>
-			</td>
-			<td width="30%" valign="top" align="left" bgcolor="#666666">
-				<center>
-					<p>RELATED ITEMS</p>
-				</center>
-				{% for item in relatedItems %}
-					<div class="floated_img">
-						<a href={{ item.route }}><img src={{ item.image }} height="100"></img>
+	<!-- <center><a href="/list"><img src="/static/img/add_item.png" alt="add item" width="200" padding="20"></a> -->
+	<center>
+		<div class="mytable">
+			<table>
+				<tr>
+					<td width="70%" valign="top" bgcolor="#666666">
 						<center>
-							<p> {{ item.title }} </p>
+							<p><img src= {{ image }} alt={{ title }} height="600"></p>
 						</center>
-					</div>
-				{% endfor %}
-			</td>
-		</tr>
-	</table>
+					</td>
+					<td width="30%" valign="top" align="left" bgcolor="#666666">
+						<center>
+							<p>RELATED ITEMS</p>
+						</center>
+						{% for item in relatedItems %}
+							<div class="floated_img">
+								<a href={{ item.route }}><img src={{ item.image }} height="100"></img>
+								<center>
+									<p> {{ item.title }} </p>
+								</center>
+							</div>
+						{% endfor %}
+					</td>
+				</tr>
+			</table>
+		</div>
 </center>
 
 {% endblock %}
